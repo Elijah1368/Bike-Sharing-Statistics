@@ -74,19 +74,23 @@ def get_filters():
 
     while True:
         try:
+            #cleans user input
             city = \
                 ' '.join(input("""
 Choose out of the available cities
             (Chicago, New York City, Washington):
             \t""").lower().split())
+            #verifies if input is correct
             if CITY_DATA.get(city, 0) == 0:
                 raise TypeError
                 continue
             break
+            #if the user writes inappropriate input, display error message
         except TypeError:
             print ('\nPlease type ONLY the city from the THREE options'
                    , '(Chicago, New York City, Washington).')
             continue
+            #catch all unexpected exceptions and tries again
         except Exception as e:
 
             print ('''
