@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 '''
 Displays statistical Bike Share information for Chicago, New york, and Washington
 
@@ -73,55 +74,40 @@ def get_filters():
     # get user input for city
 
     while True:
+        #Validates if user input is correct
         try:
-            #cleans user input
-            city = \
-                ' '.join(input("""
-Choose out of the available cities
-            (Chicago, New York City, Washington):
-            \t""").lower().split())
-            #verifies if input is correct
+            city = ' '.join(input("Choose out of the available cities\n\t\n\t\t(Chicago, New York City, Washington):\t").lower().split())
             if CITY_DATA.get(city, 0) == 0:
                 raise TypeError
                 continue
             break
-            #if the user writes inappropriate input, display error message
+        #Display error message for inappropriate input
         except TypeError:
-            print ('\nPlease type ONLY the city from the THREE options'
-                   , '(Chicago, New York City, Washington).')
+
+            print ('\nPlease type ONLY the city from the THREE options (Chicago, New York City, Washington).')
             continue
-            #catch all unexpected exceptions and tries again
+        #Catch unexpected errors then tries again
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-{}
-'''.format(e))
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     # choose filter
 
     while True:
         try:
-            filter = \
-                input("""Choose your filter
-            (Month, Day, Both, None):
-            \t""").strip().lower()
+            filter = input("Choose your filter\n\t(Month, Day, Both, None):\n\t\t").strip().lower()
             if filter not in FILTERS:
                 raise TypeError
                 continue
             break
         except TypeError:
 
-            print ('\nPlease type ONLY the filter from the FOUR options'
-                   , '(Month, Day, Both, None).\n')
+            print ('\nPlease type ONLY the filter from the FOUR options (Month, Day, Both, None).\n')
             continue
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-{}
-'''.format(e))
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     if filter == 'none':
@@ -143,25 +129,18 @@ def get_month_filter():
 
     while True:
         try:
-            month = \
-                input("""
-Choose out of the available months
-                        (January, February, March, April, May, June):
-                        \t""").strip().lower()
+            month = input("Choose out of the available months\n\t(January, February, March, April, May, June):\n\t\t").strip().lower()
             if month not in MONTHS:
                 raise TypeError
                 continue
             break
         except TypeError:
 
-            print ('\nPlease type ONLY the month from the SIX options',
-                   '(January, February, March, April, May, June).')
+            print ('\nPlease type ONLY the month from the SIX options (January, February, March, April, May, June).')
             continue
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-''', e)
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     return month
@@ -172,26 +151,18 @@ def get_day_filter():
 
     while True:
         try:
-            day = \
-                input("""
-Choose a day
-            (Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday):
-            \t""").strip().lower()
+            day = input("Choose a day\n\t(Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday):\n\t\t").strip().lower()
             if day not in DAYS:
                 raise TypeError
                 continue
             break
         except TypeError:
 
-            print ('\nPlease type ONLY the day from the SEVEN options',
-                   '(Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday).'
-                   )
+            print ('\nPlease type ONLY the day from the SEVEN options (Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday).')
             continue
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-''', e)
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     return day
