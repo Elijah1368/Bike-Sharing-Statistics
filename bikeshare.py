@@ -77,15 +77,11 @@ def get_filters():
             break
         except TypeError:
 
-            print ('\nPlease type ONLY the city from the THREE options'
-                   , '(Chicago, New York City, Washington).')
+            print ('\nPlease type ONLY the city from the THREE options (Chicago, New York City, Washington).')
             continue
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-{}
-'''.format(e))
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     # choose filter
@@ -99,15 +95,11 @@ Something went wrong, please try again.
             break
         except TypeError:
 
-            print ('\nPlease type ONLY the filter from the FOUR options'
-                   , '(Month, Day, Both, None).\n')
+            print ('\nPlease type ONLY the filter from the FOUR options (Month, Day, Both, None).\n')
             continue
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-{}
-'''.format(e))
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     if filter == 'none':
@@ -136,14 +128,11 @@ def get_month_filter():
             break
         except TypeError:
 
-            print ('\nPlease type ONLY the month from the SIX options',
-                   '(January, February, March, April, May, June).')
+            print ('\nPlease type ONLY the month from the SIX options (January, February, March, April, May, June).')
             continue
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-''', e)
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     return month
@@ -161,15 +150,11 @@ def get_day_filter():
             break
         except TypeError:
 
-            print ('\nPlease type ONLY the day from the SEVEN options',
-                   '(Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday).'
-                   )
+            print ('\nPlease type ONLY the day from the SEVEN options (Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday).')
             continue
         except Exception as e:
 
-            print ('''
-Something went wrong, please try again.
-''', e)
+            print ('Something went wrong, please try again.{}'.format(e))
             continue
 
     return day
