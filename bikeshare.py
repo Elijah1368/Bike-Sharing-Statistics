@@ -1,16 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
 '''
-Displays statistical bikeshare information for chicago, new york, or washington
-Special Thanks to the internets:
-https://stackoverflow.com/questions/19377969/combine-two-columns-of-text-in-dataframe-in-pandas-python#19378497
-https://stackoverflow.com/questions/16327055/how-to-add-an-empty-column-to-a-dataframe#16327135
-https://duckduckgo.com/?q=pandas+count+rows&t=lm&atb=v179-1&ia=qa&iax=qa
-https://stackoverflow.com/questions/29148189/pandas-where-is-the-function-for-mean-that-ignores-nan
-https://stackoverflow.com/questions/28097222/pandas-merge-two-dataframes-with-different-columns#28097336
-https://pythoniter.appspot.com/
-https://www.tutorialspoint.com/index.htm
+Displays statistical Bike Share information for Chicago, New york, and Washington
+
+CONSTANTS
+----------
+CITY_DATA : dictionary
+    city name that refers to its bike share records
+MONTHS : list
+    list of months from January to June
+DAYS : list
+    list of days from Monday to Sunday
+FILTERS : list
+    list of filter options for displaying statistical bike share data
+NULL_FRAME : list
+    an empty dataframe for resizing city dataframes to the uniform size
 '''
 
 import time
@@ -72,7 +76,7 @@ def get_filters():
         try:
             city = \
                 ' '.join(input("""
-Choose out of the available cities 
+Choose out of the available cities
             (Chicago, New York City, Washington):
             \t""").lower().split())
             if CITY_DATA.get(city, 0) == 0:
@@ -80,7 +84,6 @@ Choose out of the available cities
                 continue
             break
         except TypeError:
-
             print ('\nPlease type ONLY the city from the THREE options'
                    , '(Chicago, New York City, Washington).')
             continue
@@ -97,7 +100,7 @@ Something went wrong, please try again.
     while True:
         try:
             filter = \
-                input("""Choose your filter 
+                input("""Choose your filter
             (Month, Day, Both, None):
             \t""").strip().lower()
             if filter not in FILTERS:
@@ -203,9 +206,9 @@ def load_data(city, month, day):
     """
 
     df = pd.read_csv(CITY_DATA[city])
-    
+
     #adds missing columns to df and fills it with null
-    
+
     df = pd.concat([df, NULL_FRAME], axis=0, ignore_index=True,
                    sort=True)
 
@@ -384,7 +387,7 @@ def see_rows(df):
             see_rows = input("\nWould you like to see more data? (yes or no)").strip().lower()
             if see_rows == "yes":
                 print(df[start:end])
-                start += 5 
+                start += 5
                 end += 5
             elif see_rows == "no":
                 break
@@ -396,5 +399,3 @@ def see_rows(df):
 
 if __name__ == '__main__':
     main()
-
-
