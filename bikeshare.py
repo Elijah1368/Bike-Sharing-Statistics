@@ -70,11 +70,7 @@ def get_filters():
 
     while True:
         try:
-            city = \
-                ' '.join(input("""
-Choose out of the available cities 
-            (Chicago, New York City, Washington):
-            \t""").lower().split())
+            city = ' '.join(input("Choose out of the available cities\n\t\n\t\t(Chicago, New York City, Washington):\t").lower().split())
             if CITY_DATA.get(city, 0) == 0:
                 raise TypeError
                 continue
@@ -96,10 +92,7 @@ Something went wrong, please try again.
 
     while True:
         try:
-            filter = \
-                input("""Choose your filter 
-            (Month, Day, Both, None):
-            \t""").strip().lower()
+            filter = input("Choose your filter\n\t(Month, Day, Both, None):\n\t\t").strip().lower()
             if filter not in FILTERS:
                 raise TypeError
                 continue
@@ -136,11 +129,7 @@ def get_month_filter():
 
     while True:
         try:
-            month = \
-                input("""
-Choose out of the available months
-                        (January, February, March, April, May, June):
-                        \t""").strip().lower()
+            month = input("Choose out of the available months\n\t(January, February, March, April, May, June):\n\t\t").strip().lower()
             if month not in MONTHS:
                 raise TypeError
                 continue
@@ -165,11 +154,7 @@ def get_day_filter():
 
     while True:
         try:
-            day = \
-                input("""
-Choose a day
-            (Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday):
-            \t""").strip().lower()
+            day = input("Choose a day\n\t(Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday):\n\t\t").strip().lower()
             if day not in DAYS:
                 raise TypeError
                 continue
@@ -203,9 +188,9 @@ def load_data(city, month, day):
     """
 
     df = pd.read_csv(CITY_DATA[city])
-    
+
     #adds missing columns to df and fills it with null
-    
+
     df = pd.concat([df, NULL_FRAME], axis=0, ignore_index=True,
                    sort=True)
 
@@ -384,7 +369,7 @@ def see_rows(df):
             see_rows = input("\nWould you like to see more data? (yes or no)").strip().lower()
             if see_rows == "yes":
                 print(df[start:end])
-                start += 5 
+                start += 5
                 end += 5
             elif see_rows == "no":
                 break
@@ -396,5 +381,3 @@ def see_rows(df):
 
 if __name__ == '__main__':
     main()
-
-
