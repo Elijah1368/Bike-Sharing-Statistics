@@ -1,8 +1,3 @@
-### Date created
-The bikeshare project was started on August  13, 2019 and was gracefully finished on August 15, 2019.
-
-This readme file, on the other hand, was made on August 18, 2019 at 9:49 pm by a caffeinated author in his underwear rushing to finish the course before his next tuition deadline.
-
 ### Project Title
 Explore Bike Share Data of Three U.S. Cities
 
