@@ -1,6 +1,12 @@
 ### Project Title
 Explore Bike Share Data of Three U.S. Cities
 
+### Usage
+-Download Repo
+-CD to Repo Folder
+-Type in console bikeshare.py
+-Will show you options on which city to choose in console
+
 ### Description
 Get an overview of bike share usage in Chicago, New York City, and Washington, DC.
 
